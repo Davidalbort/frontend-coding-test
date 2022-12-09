@@ -1,13 +1,18 @@
 import { useRouter } from "next/router"
-import { FormTask } from "../../../../components"
+import { Back, FormTask } from "../../../../components"
 
 const EditTask = () => {
     const router = useRouter()
     const {IdT,Id} = router.query
     return (
         <div>
-            {`It's EditTask of : ${IdT}`}
-            <button onClick={() => router.back()}>Back</button>
+            <section className="ml-4 mt-4">
+                <Back 
+                    handleClick={() => router.back()}
+                    
+                />
+
+            </section>
             <FormTask />
         </div>
     )

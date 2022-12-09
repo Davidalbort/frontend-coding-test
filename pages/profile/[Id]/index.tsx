@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { ProfileItem, ProfileUser, Table } from "../../../components"
+import { Back, ProfileItem, ProfileUser, Table } from "../../../components"
 import { usePersons, useTasks } from "../../../hooks"
 import { TasksFromApi } from "../../../types/service"
 import { getTasks } from "../../../services"
@@ -22,6 +22,9 @@ interface StateId {
     }
     return(
         <div className="m-4">
+            <Back 
+                handleClick={() => router.back()}
+            />
             <h1 className="font-bold text-3xl text-gray-500">Profile Picture</h1>
             {loading ? 
                 <span className=" text-2xl font-bold">Loading...</span>

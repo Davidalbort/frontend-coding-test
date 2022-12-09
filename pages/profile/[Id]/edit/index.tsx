@@ -1,12 +1,18 @@
 import { useRouter } from "next/router";
-import { FormProfile } from "../../../../components";
+import { Back, FormProfile } from "../../../../components";
 
 const Edit =  () => {
     const router = useRouter()
     const {Id} = router.query
     return (
         <div>
-            {`Hi, it's a edit number id : ${Id}`}
+            <section className="ml-4 mt-4">
+                <Back 
+                    handleClick={() => router.back()}
+                    
+                />
+
+            </section>
             <FormProfile />
         </div>
     )
