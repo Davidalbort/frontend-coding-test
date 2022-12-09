@@ -1,3 +1,7 @@
 export * from './Profiles'
 export * from './ProfileItem'
 export * from './Filter'
+export * from './ProfileUser'
+export * from './Table'
+export * from './FormProfile'
+export * from './FormTask'

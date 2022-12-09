@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { PeopleFromApi, TasksFromApi } from "../types/service"
+import { PeopleFromApi } from "../types/service"
 import { useRouter } from "next/router"
 import { usePersons } from "../hooks"
 

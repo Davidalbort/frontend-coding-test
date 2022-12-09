@@ -3,11 +3,11 @@ import { PeopleFromApi } from "../types/service"
 
 interface PropsProfileItem {
     profile: PeopleFromApi
-    handleClick: () => void
+    handleClick?: () => void
 }
 export const ProfileItem = ({profile,handleClick}: PropsProfileItem) => {
     return (
-        <article className="w-auto flex items-center p-3 bg-slate-300 rounded mt-2" onClick={handleClick}>
+        <article className="w-auto flex items-center p-3 bg-slate-300 rounded mt-2 cursor-pointer" onClick={handleClick}>
                 <figure className=" shadow-md mx-3 ">
                     <Image 
                         src={profile.picture}

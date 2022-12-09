@@ -1,19 +1,15 @@
 import { usePersons } from "../hooks"
 import { Filter } from "./Filter"
 import { ProfileItem } from "./ProfileItem"
-import { useState } from "react"
 import { useRouter } from 'next/router'
 
 
-interface StateProfiles {
-    sort: string
-}
+
 export const Profiles = () => {
     const router= useRouter()
-    const [name,setName]=useState('hi')
     const {loading,persons,sortBy} = usePersons()
-    const handleChange = async (event) => {
-        const name= await event.target.value
+    const handleChange =  (event) => {
+        const name= event.target.value
         
         sortBy(name)
     }

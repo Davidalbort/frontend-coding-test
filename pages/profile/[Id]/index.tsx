@@ -14,16 +14,15 @@ interface StateId {
     const router = useRouter()
     const id = Number(router.query.Id)
     const {loading,findProfile} = usePersons()
-    const {tasks,completed} = useTasks(id)
+    const {tasks,completed,updateCompleted} = useTasks(id)
     const profile= findProfile(id)
     const [toggleTask,setToggleTask]= useState<StateId['showTask']>(false)
-
     const goEditTask = (idT: number): void => {
         router.replace(`/tasks/${idT}/edit`)
     }
     return(
-        <div>
-            <h1>Profile Picture</h1>
+        <div className="m-4">
+            <h1 className="font-bold text-3xl text-gray-500">Profile Picture</h1>
             {loading ? 
                 <span className=" text-2xl font-bold">Loading...</span>
                 :
@@ -36,15 +35,15 @@ interface StateId {
             }
             {
                 toggleTask ?
-                    <section >
-
+                    <section className="flex flex-col mt-4">
+                        <h2 className="font-bold text-2xl text-gray-500 text-center">Table Task</h2>
                         <Table 
                             tasks={tasks}
                             handleCompletedTask={completed}
                             handleEditTask={goEditTask}
                         />
                     </section>
-                    : toggleTask && <p>You do not have any assigned tasks, would you like to create one?</p>
+                    : !tasks && <p>You do not have any assigned tasks, would you like to create one?</p>
                 }
         </div>
     )
